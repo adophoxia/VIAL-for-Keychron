@@ -14,7 +14,7 @@ This is ***not*** the actual code to the Keychron Q/V boards, but *modified code
  
 ## Why?
 
-Considering that the main QMK repo still only has the Keychron Q1v1 (ATmega32u4) and Q2 in `master` while the PRs to add the Q3, Q5, Q6, and Q0 have a long way to go be added, I've decided to take matters into my own hands and decide to both, add every Q/V board that's currently out while also porting them to be used with VIAL. (I do plan on submitting PRs to add to the main vial-qmk repo once the Q/V boards are merged with `qmk:master`.)
+Considering that the main QMK repo and VIAL's fork of it still only has the Keychron Q1v1 (ATmega32u4) and Q2 in `master`, while the PRs to add the Q3, Q5, Q6, and Q0 have a long way to go be added, I've decided to take matters into my own hands and decide to both, add every Q/V board that's currently out while also porting them to be used with VIAL. (I do plan on submitting PRs to add to the main vial-qmk repo once the Q/V boards are merged with `qmk:master`.)
  
 If you don't know what VIAL, VIA, or QMK even is, I have tried, to the best of my abililes, explain the 3 are [here](WHATIS.md).  
  
