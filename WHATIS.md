@@ -3,7 +3,7 @@ To understand VIAL, we need to understand VIA, but to understand VIA, we need to
 
 ## What is QMK?
 
-<p align="center"><img src="media/QMK_Light.img" width="75%"></p>
+<p align="center"><img src="media/QMK_Light.png" width="50%"></p>
  
 QMK is an open source keyboard firmware that you can load onto the keyboard, provided the bootloader is not locked, instead of any proprietary ones that it comes with. This basically acts as the defacto standard for custom keyboards like Keychron’s since instead of having to rely on a vendor/manufacturer to keep up their end of the bargain and provide updates to their keyboards, you can do so yourself since the source code is available to use, along with other additions made by the community. You can program anything that you can to your keyboard, including: 
 * Setting up multiple layers (Ex; gaming - only WASD and Arrows are active, RGB - Lighting configuration, numpad - Any 10 keys on your keyboard used as 0-9, MacOS - Set up a keymap with keys to use on MacOS, etc.)
@@ -16,7 +16,7 @@ This is all done at a *`firmware level`* however, meaning that you'll have to do
 
 ## What is VIA?
 
-<p align="center"><img src="media/VIA.png" width="75%"></p>
+<p align="center"><img src="media/VIA.png" width="50%"></p>
  
 VIA is a [*now*] open source GUI that communicates with QMK, letting you change your keymap on your keyboard without needing to reflash firmware. The changes you make using VIA remain persistent on the keyboard, so even when you unplug and replug your keyboard back in, the keymap settings still remain. 
 
@@ -28,7 +28,7 @@ It's akin to control software from gaming brands like Corsair's iCUE, Razer's Sy
 
 ## What is VIAL?
 
-<p align="center"><img src="media/VIAL.png" width="75%"></p>
+<p align="center"><img src="media/VIAL.png" width="25%"></p>
 
 VIAL is an open source and decentralized alteranative to VIA, and also a [fork of QMK](https://github.com/vial-kb/vial-qmk) itself. The `decentralized` part refers to the fact that you do not have to submit your keyboard as a pull-request to any third-party repositories (`the-via:keyboards`) before it can be used in the GUI. Instead, the keymap JSON definition (what you load into VIA to recognize a board if it's not in the repo) is stored within the keyboard firmware and is retrieved at runtime, meaning you don't have to load a JSON to make VIAL recognize the board or wait for a pull request to be made to the main QMK repo and/or `the-via:keyboards` repo to add support for the rest of the Q/V boards. If you've ever wondered why you always had to deal with the "Searching for Devices" screen when you open VIA with any Q/V board besides the 2 I mentioned plugged in, this is why. It's also why in these situations, it's instructed that you load the JSON file (the one I talked about earlier) that Keychron provides for whatever board you have. 
  
