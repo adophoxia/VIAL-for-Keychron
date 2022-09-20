@@ -24,7 +24,7 @@ For the purposes of this guide, we'll be taking a Windows-centralized sense, mea
             ```git clone -b vial_keychron_only https://github.com/adophoxia/vial-qmk.git```
 
 2. Navigate to the root of the repo's folder.
-    * If you're using VS Code, you can make using MSYS easier by adding it as a terminal option (here)[https://docs.qmk.fm/#/other_vscode?id=configuring-vs-code], so that when you open the terminal and pick MSYS, it'll automatically go to root and you can use the commands right away.
+    * If you're using VS Code, you can make using MSYS easier by adding it as a terminal option [here](https://docs.qmk.fm/#/other_vscode?id=configuring-vs-code), so that when you open the terminal and pick MSYS, it'll automatically go to root and you can use the commands right away.
 
 3. Run `make git-submodule` to clone the git submodules. This is required to make compiling your firmware be as smooth as possible. 
 
