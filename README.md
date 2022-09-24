@@ -18,7 +18,7 @@ Considering that the main QMK repo and VIAL's fork of it still only has the Keyc
 
 This fork will consolidate all of the Q/V boards that are currently out along with all the different variants into one code base.
  
-If you don't know what VIAL, VIA, or QMK even is, I have tried, to the best of my abililes, explain what the 3 are [here](WHATIS.md). 
+If you don't know what VIAL, VIA, or QMK are, I have tried, to the best of my abililes, explain what the 3 are [here](WHATIS.md). 
 
 # How To
 If you're already caught up, please read the [HOW2COMPILE.md](HOW2COMPILE.md) file for instructions on how to use this code.
