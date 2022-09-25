@@ -53,7 +53,7 @@ Vial's source base does not include the EFL/WL source base yet *(as of Sep 12 20
 
 ## Notes on Knob compatability
 
-You may have noticed that there aren't any versions with `ec11` or any mention of encoders in the `readme.md` in the keyboard folders. That's because we can add encoder support all on one firmware. At least for my Q2, I was able to use the firmware that's specifically for the non-knob version and add the code used to make encoders work on it, all without having to compile another firmware specifically made for knobs. How it is done, you can look through the files for the respective board you're wanting to compile and flash.
+You may have noticed that there aren't any versions with `ec11` or any mention of encoders in the `readme.md` in the keyboard folders (excluding the Q1). That's because we can add encoder support all on one firmware. At least for my Q2, I was able to use the firmware that's specifically for the non-knob version and add the code used to make encoders work on it, all without having to compile another firmware specifically made for knobs. How it is done, you can look through the files for the respective board you're wanting to compile and flash.
 
 <p align="center"><img src="media/Encoder.png" width="75%"></p>
 
