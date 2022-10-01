@@ -26,6 +26,8 @@ It's akin to control software from gaming brands like Corsair's iCUE, Razer's Sy
  * Programs that end up being resource-hogs (Looking at you taking up **>0.6GB of my RAM**, Razer) or having install sizes that are close to even the fork you'll be cloning.
  * Programs that require you to have them be run in the background for them to function.
 
+<p align="center"><img src="media/q2_via.png" width="50%"></p>
+
 ## What is VIAL?
 
 <p align="center"><img src="media/VIAL.png" width="25%"></p>
