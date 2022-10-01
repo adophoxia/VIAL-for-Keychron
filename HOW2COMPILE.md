@@ -31,7 +31,7 @@ For the purposes of this guide, we'll be taking a Windows-centralized sense, mea
 4. That should be it. No really. You're ready to compile. Once you made the changes you want to make, do the command below:
     ```
     make keychron/[model]/[model_variant]:vial
-    (Ex: make keychron/v4/v4_stm32l432:vial)
+    (Ex: make keychron/v4/rev_0340:vial)
     ```
 5. Flash the firmware by typing `make keychron/[model]/[model_variant]:vial:flash` and put your keyboard into bootloader mode by pressing and holding on the reset buttton under the spacebar while plugging in your USB-C cable. 
 
