@@ -1,4 +1,4 @@
-# `VIAL Keychron` - How to compile this source
+# `VIAL for Keychron` - How to compile this source
 
 ---
 
