@@ -14,14 +14,14 @@ Compile VIAL-QMK for the Keychron Q/V series, using @tzarc's EFL *(Embedded Flas
 * Text Editor (Visual Studio Code, Sublime, Notepad++; I'd recommend Visual Studio Code to make messing with your firmware easier)
 
 ## About
-This code base supports the entire Keychron Q/V lineup (will update to include unreleased models) -- the STM32 MCU versions --- with one code base and VIAL sideload files for the respective boards.  To compile the firmware, you will need to compile off the [`adophoxia/vial-qmk:vial_keychron`](https://github.com/adophoxia/vial-qmk/tree/vial-keychron) repo:branch, which includes the EFL driver, and the "wear-leveling algorithm" - added with PR's [#16996](https://github.com/qmk/qmk_firmware/pull/16996), [#17651](https://github.com/qmk/qmk_firmware/pull/17651), and [#17661](https://github.com/qmk/qmk_firmware/pull/17661), all merged from remote:upstream qmk:master. (The wear-leveling algorithm and EFL driver is needed to make the boards have emulated EEPROM, which is where the dynamic keymap used by VIA and some other variables, but persistent, settings are stored. If you ever wondered why sometimes, your keybinds don't save when you close VIA, this is just so that doesn't happen if that's the case.)
+This code base supports the entire Keychron Q/V lineup (will update to include unreleased models) -- the STM32 MCU versions --- with one code base and VIAL sideload files for the respective boards.  To compile the firmware, you will need to compile off the [`adophoxia/vial-qmk:vial-keychron`](https://github.com/adophoxia/vial-qmk/tree/vial-keychron) repo:branch, which includes the EFL driver, and the "wear-leveling algorithm" - added with PR's [#16996](https://github.com/qmk/qmk_firmware/pull/16996), [#17651](https://github.com/qmk/qmk_firmware/pull/17651), and [#17661](https://github.com/qmk/qmk_firmware/pull/17661), all merged from remote:upstream qmk:master. (The wear-leveling algorithm and EFL driver is needed to make the boards have emulated EEPROM, which is where the dynamic keymap used by VIA and some other variables, but persistent, settings are stored. If you ever wondered why sometimes, your keybinds don't save when you close VIA, this is just so that doesn't happen if that's the case.)
 
 ## Preparation
 For the purposes of this guide, we'll be taking a Windows-centralized sense, meaning MSYS is needed.
 1. If you haven't already create an instance of the source code on your computer - you'll want to use either a fork of, or a clone of:
-    * [`adophoxia/vial-qmk:vial_keychron`](https://github.com/adophoxia/vial-qmk/tree/vial-keychron) - The `vial_keychron` branch of my fork of VIAL-QMK.  *(Works for EFL/WL compile.)
+    * [`adophoxia/vial-qmk:vial-keychron`](https://github.com/adophoxia/vial-qmk/tree/vial-keychron) - The `vial-keychron` branch of my fork of VIAL-QMK.  *(Works for EFL/WL compile.)
         * Using Git clone is preferred. To clone with Git, type:
-            ```git clone -b vial_keychron_only https://github.com/adophoxia/vial-qmk.git```
+            ```git clone -b vial-keychron https://github.com/adophoxia/vial-qmk.git```
 
 2. Navigate to the root of the repo's folder.
     * If you're using VS Code, you can make using MSYS easier by adding it as a terminal option [here](https://docs.qmk.fm/#/other_vscode?id=configuring-vs-code), so that when you open the terminal and pick MSYS, it'll automatically go to root and you can use the commands right away.
