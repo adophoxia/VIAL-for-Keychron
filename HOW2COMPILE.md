@@ -19,7 +19,7 @@ This code base supports the entire Keychron Q/V lineup (will update to include u
 ## Preparation
 For the purposes of this guide, we'll be taking a Windows-centralized sense, meaning MSYS is needed.
 1. If you haven't already create an instance of the source code on your computer - you'll want to use either a fork of, or a clone of:
-    * [`adophoxia/vial-qmk:vial_keychron`](https://github.com/adophoxia/vial-qmk/tree/vial-keychron) - The `vial_keychron_only` branch of my fork of VIAL-QMK.  *(Works for EFL/WL compile.)
+    * [`adophoxia/vial-qmk:vial_keychron`](https://github.com/adophoxia/vial-qmk/tree/vial-keychron) - The `vial_keychron` branch of my fork of VIAL-QMK.  *(Works for EFL/WL compile.)
         * Using Git clone is preferred. To clone with Git, type:
             ```git clone -b vial_keychron_only https://github.com/adophoxia/vial-qmk.git```
 
