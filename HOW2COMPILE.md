@@ -40,7 +40,7 @@ For the purposes of this guide, we'll be taking a Windows-centralized sense, mea
         5. Profit
     Once that is completed, check to make sure that the keys register and that the LEDs work properly. If the two criteria is completed, you can move on to compiling the VIAL keymap and flashing the firmware.
 
-5. Once you made the changes you want to make, follow step 4, but replace `default` with `vial` while also following sub-steps 1-5. Once that's done, again, check to make sure that keys register and that the LEDs function properly. If all goes good and well, congradulations, you've successfully flash VIAL firmware.  
+5. Once you made the changes you want to make, follow step 4, but replace `default` with `vial` while also following sub-steps a-e. Once that's done, again, check to make sure that keys register and that the LEDs function properly. If all goes good and well, congradulations, you've successfully flash VIAL firmware.  
 ## The V series
 From word of mouth, the V series uses the same PCB as the Q series, meaning theoretically, you could make 1 firmware base that encompasses knob support, cross-platform compatability between the Q/V boards and the 3 layouts (ANSI/ISO/JIS). How much of that is true for me to make a single firmware, I'm not sure, which is why currently, I won't be including an entry for it for the time being. 
 ## VIA
