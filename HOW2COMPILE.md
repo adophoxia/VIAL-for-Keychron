@@ -10,32 +10,41 @@ Compile VIAL-QMK for the Keychron Q/V series, using @tzarc's EFL *(Embedded Flas
 
 ## Prerequisites
 * [QMK MSYS](https://msys.qmk.fm/) (If you use Windows)
+* [QMK WSL](https://qmk.github.io/qmk_distro_wsl/) (If you use Windows; recommended)
 * [VIAL](https://get.vial.today/)
 * Text Editor (Visual Studio Code, Sublime, Notepad++; I'd recommend Visual Studio Code to make messing with your firmware easier)
 
 ## About
-This code base supports the entire Keychron Q/V lineup (will update to include unreleased models) -- the STM32 MCU versions --- with one code base and VIAL sideload files for the respective boards.  To compile the firmware, you will need to compile off the [`adophoxia/vial-qmk:vial-keychron`](https://github.com/adophoxia/vial-qmk/tree/vial-keychron) repo:branch, which includes the EFL driver, and the "wear-leveling algorithm" - added with PR's [#16996](https://github.com/qmk/qmk_firmware/pull/16996), [#17651](https://github.com/qmk/qmk_firmware/pull/17651), and [#17661](https://github.com/qmk/qmk_firmware/pull/17661), all merged from remote:upstream qmk:master. (The wear-leveling algorithm and EFL driver is needed to make the boards have emulated EEPROM, which is where the dynamic keymap used by VIA and some other variables, but persistent, settings are stored. If you ever wondered why sometimes, your keybinds don't save when you close VIA, this is just so that doesn't happen if that's the case.)
+This code base supports the entire Keychron Q/V lineup (will update to include unreleased models) -- the STM32 MCU versions --- with one code base and VIAL sideload files for the respective boards.
+
+This code base supports most of the entire Keychron Q/V lineup (more board to come after they get merged into [`qmk:master`](https://github.com/qmk/qmk_firmware/tree/master/keyboards/keychron/); the Q1v1 (ATmega32u4) is still not in upstream QMK, so that's in a TBD state.) --  the STM32 MCU versions --- with one code base and VIAL sideload files for the respective boards. There are instructions to compile and flash the VIAL firmware for each board, that of which is denoted in their respective `readme.md` file, usually something akin to:
+    make keychron/[model]/[layout]:vial:flash
 
 ## Preparation
-For the purposes of this guide, we'll be taking a Windows-centralized sense, meaning MSYS is needed. We will be following most of the steps covered in the QMK (guide)[https://docs.qmk.fm/#/newbs_getting_started], so if you want to follow along, open this page up in a seperate tab. 
+For the purposes of this guide, we'll be taking a Windows-centralized sense, and this time, we'll be utilizing QMK WSL which gives us faster compile times so that we can have our firmware quicker. We will be following most of the steps covered in the QMK (guide)[https://docs.qmk.fm/#/newbs_getting_started], so if you want to follow along, open this page up in a seperate tab. 
 ## How to
-1. If you haven't already create an instance of the source code on your computer - you'll want to use either a fork of, or a clone of:
-    * [`adophoxia/vial-qmk:vial-keychron`](https://github.com/adophoxia/vial-qmk/tree/vial-keychron) - The `vial-keychron` branch of my fork of VIAL-QMK.  *(Works for EFL/WL compile.)
-        * Using Git clone is preferred. To clone with Git, type: `git clone -b vial-keychron https://github.com/adophoxia/vial-qmk.git`
+1. If you haven't already create an instance of the source code on your computer - you'll need to clone:
+    * [`vial-kb/vial-qmk:vial`](https://github.com/vial-kb/vial-qmk/tree/vial) - The main branch for the `vial-qmk` repo.
 
-2. With QMK MSYS open, navigate to the root folder of the repo you downloaded it to. (`cd [path/to/qmk_firmware]`). Usually, it'll download to your `C:/Users/[username]` directory, but that may not be the case if you opened Git Bash inside a folder.
-    * If you're using VS Code, you can make using MSYS easier by adding it as a terminal option [here](https://docs.qmk.fm/#/other_vscode?id=configuring-vs-code), so that when you open the terminal and pick MSYS, it'll automatically go to root and you can use the commands right away.
+2. With QMK WSL installed, there will now be a new folder that'll show up in File/Windows Explorer, something like this:
+
+<p align="left"><img src="media/WSL.png" width="75%"></p>
+
+When you open the application, it'll bring up a terminal that already has the QMK CLI installed that's required to be able to do the commands like compiling and flashing.
+
+<p align="left"><img src="media/WSL_terminal.png" width="75%"></p>
+
+By default, the terminal will be inside the `qmk` folder inside `\\wsl.localhost\QMK\home\qmk`. To clone the vial repo, you'll need to type in `git clone --recurse-submodules https://github.com/vial-kb/vial-qmk.git`. `--recurse-submodules` will clone the necessary submodules (folders from other repos) that are also necessary for compiling the firmware. After the repo is cloned assuming that things go wellm you can now enter the folder for the repo via `cd vial-qmk`
 
 3. Run `qmk setup` to make sure that your enviromnent is setup correctly.
-    * If you get an option to clone submodules with `y/n`, enter `n` for now and type `make git-submodule`after that. This is required to make compiling your firmware be as smooth as possible. You should get this once the process is done with no errors.
+    * If you get an option to clone submodules with `y/n`, enter `y` and it'll clone the necesssary submodules.
 <p align="center"><img src="media/submodule.png" width="75%"></p>
 
 4. That should be it. No really. You're ready to compile. To test that everything went smoothly, you should compile the **default** keymap and flash it on your board so as to make sure that both, the keys register and that the LEDs work properly. 
-    * To compile the default keymap, with MSYS in the root of the `qmk_firmware` folder, enter `make keychron/[keyboard]/[keyboard_variant]:default` ("keyboard" and "keyboard_variant", you replace with what board you have.)
-    * To flash the board, enter `make keychron/[keyboard]/[keyboard_variant]:default:flash` and put your board into bootloader mode. (To do it with Keychron boards, you press and hold the reset button that's underneath the spacebar key. The process goes like this: 
+    * To flash the board, enter `make keychron/[model]/[layout]:default:flash` and put your board into bootloader mode. (To do it with Keychron boards, you press and hold the reset button that's underneath the spacebar key. The process goes like this: 
         1. Unplug the board after entering the command.
-        2. Press and hold the reset while plugging back in the USB-C cable. 
-        3. MSYS will begin erasing and flashing the new firmware you just compiled
+        2. Press and hold the reset button while plugging back in the USB-C cable. 
+        3. WSL will begin erasing and flashing the new firmware you just compiled
         4. Success?
         5. Profit
     Once that is completed, check to make sure that the keys register and that the LEDs work properly. If the two criteria is completed, you can move on to compiling the VIAL keymap and flashing the firmware.
@@ -44,7 +53,7 @@ For the purposes of this guide, we'll be taking a Windows-centralized sense, mea
 ## The V series
 From word of mouth, the V series uses the same PCB as the Q series, meaning theoretically, you could make 1 firmware base that encompasses knob support, cross-platform compatability between the Q/V boards and the 3 layouts (ANSI/ISO/JIS). How much of that is true for me to make a single firmware, I'm not sure, which is why currently, I won't be including an entry for it for the time being. 
 ## VIA
-Since the `vial.json` used is flashed onto the keyboard firmware, VIA will automatically detect your Q/V board, meaning gone are the days where you have to load the JSON every time you open VIA, if you still choose to use it.
+A lot has changed since then. Ever since the update to Protocol 10 for VIA, compatability for VIA for boards that have VIAL firmware loaded has made them obsolete to use both, so it's now a case of whether to stay on normal VIA firmware and only use VIA, or stick with VIAL firmware and only use VIAL. Something to keep in mind.
 
 > From how I see it, there's no point having multiple variants of the JSON file for each keyboard variant since VIA and VIAL handle multiple layouts from 1 single JSON file. 
 
