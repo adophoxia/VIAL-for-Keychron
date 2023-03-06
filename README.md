@@ -15,7 +15,7 @@ This is ***not*** the actual code to the Keychron Q/V boards, but *modified code
 ## Why?
 There are those who can't stand VIA for its non-robust set of features that are only down to basic remapping and the such. VIAL is the solution to that which has more features that are similar to what you can do with QMK, but without the hassle of writing the code for it, compiling and flashing the firmware for it to take place. 
 
-Considering that the main QMK repo and VIAL's fork of it most of the Q and V series in `master/vial`, with more to come, I took the liberty of adding each of these boards via a PR to the `vial-qmk` fork, (I do plan on submitting the rest of PRs to add to the main vial-qmk repo once all of the Q/V boards are merged with `qmk:master`.)
+Considering that the main QMK repo and VIAL's fork of it has most of the Q and V series in `master/vial`, with more to come, I took the liberty of adding each of these boards via a PR to the `vial-qmk` fork, (I do plan on submitting the rest of PRs to add to the main vial-qmk repo once all of the Q/V boards are merged with `qmk:master`.) Now, I'll show how to get the firmware for these boards so that you can have a taste of what VIAL is like.
 
 This fork will consolidate all of the Q/V boards that are currently out along with all the different variants into one code base.
  
