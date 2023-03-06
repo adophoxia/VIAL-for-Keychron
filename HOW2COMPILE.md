@@ -21,7 +21,7 @@ This code base supports most of the entire Keychron Q/V lineup (more board to co
     make keychron/[model]/[layout]:vial:flash
 
 ## Preparation
-For the purposes of this guide, we'll be taking a Windows-centralized sense, and this time, we'll be utilizing QMK WSL which gives us faster compile times so that we can have our firmware quicker. We will be following most of the steps covered in the QMK (guide)[https://docs.qmk.fm/#/newbs_getting_started], so if you want to follow along, open this page up in a seperate tab. 
+For the purposes of this guide, we'll be taking a Windows-centralized sense, and this time, we'll be utilizing QMK WSL which gives us faster compile times so that we can have our firmware quicker. We will be following most of the steps covered in the QMK [guide](https://docs.qmk.fm/#/newbs_getting_started), so if you want to follow along, open this page up in a seperate tab. 
 ## How to
 1. If you haven't already create an instance of the source code on your computer - you'll need to clone:
     * [`vial-kb/vial-qmk:vial`](https://github.com/vial-kb/vial-qmk/tree/vial) - The main branch for the `vial-qmk` repo.
