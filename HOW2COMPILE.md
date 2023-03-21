@@ -11,6 +11,7 @@ Compile VIAL-QMK for the Keychron Q/V series, using @tzarc's EFL *(Embedded Flas
 ## Prerequisites
 * [QMK MSYS](https://msys.qmk.fm/) (If you use Windows)
 * [QMK WSL](https://qmk.github.io/qmk_distro_wsl/) (If you use Windows; recommended)
+    * You will also need WSL installed to be able to use QMK WSL. If you don't have it installed, refer to the guide [`here`](https://learn.microsoft.com/en-us/windows/wsl/install).
 * [VIAL](https://get.vial.today/)
 * Text Editor (Visual Studio Code, Sublime, Notepad++; I'd recommend Visual Studio Code to make messing with your firmware easier)
 
