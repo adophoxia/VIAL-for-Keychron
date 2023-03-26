@@ -9,8 +9,8 @@
 Compile VIAL-QMK for the Keychron Q/V series, using @tzarc's EFL *(Embedded Flash Library)* driver and wear-leveling algorithm.
 
 ## Prerequisites
-* [QMK MSYS](https://msys.qmk.fm/) (If you use Windows)
-* [QMK WSL](https://qmk.github.io/qmk_distro_wsl/) (If you use Windows; recommended)
+* [QMK MSYS](https://msys.qmk.fm/) (If you use Windows; recommended; slow, but easy to setup)
+* [QMK WSL](https://qmk.github.io/qmk_distro_wsl/) (If you use Windows; fast, but takes time to configure)
     * You will also need WSL installed to be able to use QMK WSL. If you don't have it installed, refer to the guide [`here`](https://learn.microsoft.com/en-us/windows/wsl/install). Otherwise, you'll run into this error: 
     <p align="left"><img src="media/WSL/WSL_install_error.png" width="75%"></p>    
     If any other error codes popup, [`refer to MS's troubleshooting site for WSL.`](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting)
@@ -24,36 +24,53 @@ This code base supports most of the entire Keychron Q/V lineup (more board to co
     make keychron/[model]/[layout]:vial:flash
 
 ## Preparation
-For the purposes of this guide, we'll be taking a Windows-centralized sense, and this time, we'll be utilizing QMK WSL which gives us faster compile times so that we can have our firmware quicker. We will be following most of the steps covered in the QMK [guide](https://docs.qmk.fm/#/newbs_getting_started), so if you want to follow along, open this page up in a seperate tab. 
-## How to
-1. With QMK WSL installed, there will now be a new folder that'll show up in File/Windows Explorer, something like this:
+For the purposes of this guide, we'll be taking a Windows-centralized sense, and I'll be covering QMK MSYS and [QMK] WSL. We will be following most of the steps covered in the QMK [guide](https://docs.qmk.fm/#/newbs_getting_started), so if you want to follow along, open this page up in a seperate tab. 
+## Setup
+# QMK MSYS (Easy)
+(Since QMK MSYS is based off of MSYS2 while also being packaged with the QMK CLI, the former also haveing Git support, we can also use git commands to update the repo as we wish.)
+1. With QMK MSYS installed, and opened, you'll be greeted with this inside its terminal:
 
-<p align="left"><img src="media/WSL.png" width="75%"></p>
+<p align="left"><img src="media/[QMK]MSYS/MSYS_terminal.png" width="75%"></p>
+      * By default, the terminal location will be set inside the "C:\Users\[user]" path. 
+         * Do ***<ins>NOT</ins>*** run `qmk setup` as the first thing you enter. This will clone the main QMK repo (`qmk_firmware`) and not the vial repo itself. (`vial-qmk`)
+
+2. Next, in the MSYS terminal, enter `git clone --recurse-submodules https://github.com/vial-kb/vial-qmk.git` to clone the repo to where the terminal is inside. (`--recurse-submodules` will clone the necessary submodules (remote repos) that are also necessary for compiling the firmware.)
+3. Enter the repo you cloned with `cd vial-qmk` and run `qmk setup` to make sure that your enviromnent is setup correctly.
+   * If you, for some reason, get an option to clone submodules with `y/n`, enter `y` and it'll clone the necesssary submodules.
+
+# QMK WSL (Intermediate)
+(As mentioned before, you **<ins>will</ins>** need to have WSL (Windows Subsystem for Linux) enabled for your machine from Windows Features in order to use QMK WSL.)
+
+1. With QMK WSL installed, there will now be a new folder that'll show up in File/Windows Explorer, something like this on the left hand side:
+
+<p align="left"><img src="media/WSL/WSL.png" width="75%"></p>
 
 When you open the application, it'll bring up a terminal that already has the QMK CLI installed that's required to be able to do the commands like compiling and flashing.
 
-<p align="left"><img src="media/WSL_terminal.png" width="75%"></p>
+<p align="left"><img src="media/WSL/WSL_terminal.png" width="75%"></p>
 
-By default, the terminal will be inside the `qmk` folder inside `\\wsl.localhost\QMK\home\qmk`. To clone the vial repo, you'll need to type in `git clone --recurse-submodules https://github.com/vial-kb/vial-qmk.git`. `--recurse-submodules` will clone the necessary submodules (remote repos) that are also necessary for compiling the firmware. After the repo is cloned assuming that things go wellm you can now enter the folder for the repo via `cd vial-qmk`
+   * By default, the terminal location will be set inside the "C:\Users\[user]" path.
+      * Do ***<ins>NOT</ins>*** run `qmk setup` as the first thing you enter. This will clone the main QMK repo (`qmk_firmware`) and not the vial repo itself. (`vial-qmk`)
 
-2. Run `qmk setup` to make sure that your enviromnent is setup correctly.
-    * If you get an option to clone submodules with `y/n`, enter `y` and it'll clone the necesssary submodules.
+2. In the QMK WSL terminal, enter `git clone --recurse-submodules https://github.com/vial-kb/vial-qmk.git` to clone the repo to where the terminal is inside. (`--recurse-submodules` will clone the necessary submodules (remote repos) that are also necessary for compiling the firmware.)
+3. Enter the repo you cloned with `cd vial-qmk` and run `qmk setup` to make sure that your enviromnent is setup correctly.
+   * If you, for some reason, get an option to clone submodules with `y/n`, enter `y` and it'll clone the necesssary submodules.
 <p align="center"><img src="media/submodule.png" width="75%"></p>
 
-3. That should be it. No really. You're ready to compile. To test that everything went smoothly, you should compile the **default** keymap and flash it on your board so as to make sure that both, the keys register and that the LEDs work properly. 
-    * To flash the board, enter `make keychron/[model]/[layout]:default:flash` and put your board into bootloader mode. (To do it with Keychron boards, you press and hold the reset button that's underneath the spacebar key.) The process goes like this: 
+# Compiling and Flashing
+
+1. To test that everything went smoothly, you should compile the **default** keymap and flash it on your board so as to make sure that both, the keys register and that the LEDs work properly.
+    * To flash the board, enter `make keychron/[model]/[variant]:default:flash` (`[model]` and `[variant]` you replace with the board and variant you have, which is self-explanatory) and put your board into bootloader mode. (To do it with Keychron boards, you press and hold the Reset button that's next to the Spacebar key to the left.) The process goes like this: 
         1. Unplug the board after entering the command.
-        2. Press and hold the reset button while plugging back in the USB-C cable. 
-        3. WSL will begin erasing and flashing the new firmware you just compiled
+        2. Press and hold the Reset button while plugging back in the USB-C cable. 
+        3. WSL will begin erasing and flashing the new firmware you just compiled.
         4. Success?
         5. Profit
-    Once that is completed, check to make sure that the keys register and that the LEDs work properly. If the two criteria is completed, you can move on to compiling the VIAL keymap and flashing the firmware.
+    * Once that is completed and the board is flashed, check to make sure that the keys register and that the LEDs work properly. If the two criteria is completed, you can move on to compiling the VIAL keymap and flashing the firmware.
 
-5. Once you made the changes you want to make, follow step 4, but replace `default` with `vial` while also following sub-steps a-e. Once that's done, again, check to make sure that keys register and that the LEDs function properly. If all goes good and well, congradulations, you've successfully flash VIAL firmware.  
-## The V series
-From word of mouth, the V series uses the same PCB as the Q series, meaning theoretically, you could make 1 firmware base that encompasses knob support, cross-platform compatability between the Q/V boards and the 3 layouts (ANSI/ISO/JIS). How much of that is true for me to make a single firmware, I'm not sure, which is why currently, I won't be including an entry for it for the time being. 
+2. Once you made the changes you want to make, assuming you want to make your own custom firmare, follow Step 1, but replace `default` with `vial` while also following sub-steps 1-5. Once that's done, again, check to make sure that keys register and that the LEDs function properly. If all goes good and well, congradulations, you've successfully flash VIAL firmware.  
 ## VIA
-A lot has changed since then. Ever since the update to Protocol 10 for VIA from August 2022, compatability for VIA for boards that have VIAL firmware loaded has made them obsolete to use both, so it's now a case of whether to stay on normal VIA firmware and only use VIA, or stick with VIAL firmware and only use VIAL. Something to keep in mind.
+A lot has changed since then. Ever since the update to Protocol 10 for VIA from August 2022, compatability for VIAL for boards that have VIA firmware loaded has has introduced an ultimatum for the end-user. Now, it's a case of whether to stay on normal VIA firmware and only use VIA while being able to use the latest features from > 2.0.5, or to stick with VIAL firmware and only use VIAL while not having the latest features on the QMK side by dealing with not merging with Breaking Changes often. Something to keep in mind.
 
 > From how I see it, there's no point having multiple variants of the JSON file for each keyboard variant since VIA and VIAL handle multiple layouts from 1 single JSON file. 
 
