@@ -6,7 +6,7 @@
 
 ---
 
-Compile VIAL-QMK for the Keychron Q/V series, using @tzarc's EFL *(Embedded Flash Library)* driver and wear-leveling algorithm.
+Compile VIAL-QMK for the Keychron Q/V series,.
 
 ## Prerequisites
 * [QMK MSYS](https://msys.qmk.fm/) (If you use Windows; recommended; slow, but easy to setup)
@@ -20,7 +20,7 @@ Compile VIAL-QMK for the Keychron Q/V series, using @tzarc's EFL *(Embedded Flas
 ## About
 This code base supports the entire Keychron Q/V lineup (will update to include unreleased models) -- the STM32 MCU versions --- with one code base and VIAL sideload files for the respective boards.
 
-This code base supports most of the entire Keychron Q/V lineup (more board to come after they get merged into [`qmk:master`](https://github.com/qmk/qmk_firmware/tree/master/keyboards/keychron/); the Q1v1 (ATmega32u4) is still not in upstream QMK, so that's in a TBD state.) --  the STM32 MCU versions --- with one code base and VIAL sideload files for the respective boards. There are instructions to compile and flash the VIAL firmware for each board, that of which is denoted in their respective `readme.md` file, usually something akin to:
+This code base supports most of the entire Keychron Q/V lineup. There are instructions to compile and flash the VIAL firmware for each board, that of which is denoted in their respective `readme.md` file, usually something akin to:
     make keychron/[model]/[layout]:vial:flash
 
 ## Preparation

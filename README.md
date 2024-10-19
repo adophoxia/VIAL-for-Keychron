@@ -1,10 +1,15 @@
 # `Vial for Keychron`
  
-This is ***not*** the actual code to the Keychron Q/V boards, but *modified code to used to work with VIAL*.
- 
++ This is ***not*** the actual code to the Keychron non-Pro/Max Q/V boards, but *modified code to used to work with VIAL*.
+
+- The details of this guide are only for the Keychron non-Pro/Max Q/V boards.
+
+
+
+
 ---
  
-> :warning: : THIS CODE IS INTENDED FOR EDUCATIONAL PURPOSES ONLY AND DOES NOT REPRESENT KEYCHRON IN ANY WAY.
+> :warning: : THE CODE REPRESENTED HERE IS INTENDED FOR EDUCATIONAL PURPOSES ONLY AND DOES NOT REPRESENT KEYCHRON IN ANY WAY.
  
 ---
  
