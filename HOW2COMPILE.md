@@ -6,7 +6,7 @@
 
 ---
 
-Compile VIAL-QMK for the Keychron Q/V series,.
+Compile VIAL-QMK for the Keychron non-Pro/Max Q/V series.
 
 ## Prerequisites
 * [QMK MSYS](https://msys.qmk.fm/) (If you use Windows; recommended; slow, but easy to setup)
